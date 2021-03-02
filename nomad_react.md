@@ -41,6 +41,15 @@
   - ```cd my-app```  
   - ```code .```
 
+### # Create Git
+  - ```git init```
+  - ```git remote add origin "https://github.com/softm/react_myapp.git"```
+  - ```git add .```
+  - ```git commit -m "init"```
+  - ```git config --global user.email "softm@nate.com"```
+  - ```git config --global user.name "jihoon.kim"```
+  - ```git push origin master```
+
 ### # React JS Fundamentals Course (2019 Update!)
 ```javascript
 "scripts": {
@@ -48,6 +57,27 @@
     "build": "react-scripts build"
   }
 ```
+  - ```npm start```
+  - ```http://localhost:3000/```
+
+### # Modify App.js
+```javascript
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div>
+        <h1>test~~~</h1>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### # JSX
+  - Javascript & XML
 
 
 
