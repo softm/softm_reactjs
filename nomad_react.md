@@ -76,8 +76,23 @@ function App() {
 export default App;
 ```
 
-### # JSX
-  - Javascript & XML
+### # Add Component - JSX ( Javascript & XML )
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import Test from './Test';
+import reportWebVitals from './reportWebVitals';
 
+ReactDOM.render(
+  <React.StrictMode>
+    <div>
+      <App />
+      <Test />
+    </div>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-
+```
