@@ -96,3 +96,45 @@ ReactDOM.render(
 );
 
 ```
+
+### # Props
+```js
+function Test2(props) {
+  console.log(props);
+  return <div>
+   <h5>Test2</h5>
+    <pre>
+    props.param : {props.param}<br/>
+    props.something : {props.something}<br/>
+    props.papapa : {props.papapa[0]}<br/>
+    </pre>
+  </div>;
+}
+
+function Test3({param, something, papapa}) {
+  console.log(param, something, papapa);
+  return <div>
+  <h5>Test3</h5>
+   <pre>
+    param : {param}<br/>
+    something : {something}<br/>
+    papapa : {papapa[0]}<br/>
+   </pre>
+  </div>;
+}
+
+ReactDOM.render(
+  <React.StrictMode>
+    <div>
+      <App />
+      <Test />
+      <Test2 param="test" something={true} papapa={["he"]}/>
+      <Test3 param="test" something={true} papapa={["he"]}/>
+      {
+        list
+      }
+    </div>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
