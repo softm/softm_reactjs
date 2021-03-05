@@ -448,7 +448,7 @@ Movie.PropType = {
 
 export default Movie;
 ```
-
+: destructuring assignment
 ```js
 import logo from './logo.svg';
 import './App.css';
@@ -486,4 +486,312 @@ class App extends React.Component {
 }
 
 export default App;
+```
+
+### # Adding Genres - Array Key
+```js
+import React from 'react';
+import PropType from "prop-types";
+import "./Movie.css";
+
+function Movie({id, year, title, summary, poster,genres}){
+  return <div className="movie">
+    <img src={poster} alt={title} title={title}/>
+    <div className="movie__data">
+      <h3 className="movie__title">{title}</h3>
+      <h5 className="movie__year">{year}</h5>
+      <ul className="genres">
+        {genres.map((genre,index) =>(
+          <li key={index} className="genres_genre">{genre}</li>
+        ))}
+      </ul>
+      <p className="movie__summary">{summary}</p>
+    </div>
+  </div>
+}
+
+Movie.PropType = {
+  id:PropType.number.isRequired,
+  year:PropType.number.isRequired,
+  title:PropType.string.isRequired,
+  summary:PropType.string.isRequired,
+  poster:PropType.string.isRequired,
+  genres:PropType.arrayOf(PropType.string).isRequired
+}
+
+export default Movie;
+```
+
+```js
+import "./App.css";
+import React from "react";
+import axios from "axios";
+import Movie from "./Movie";
+
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies: [],
+  };
+
+  getMovies = async () => {
+    const {
+      data: {
+        data: { movies },
+      },
+    } = await axios.get("https://yts.mx/api/v2/list_movies.json");
+    //this.setState({movies:movies});
+    this.setState({ movies, isLoading: false });
+    console.log(movies);
+  };
+
+  componentDidMount() {
+    this.getMovies();
+  }
+
+  render() {
+    console.log("render");
+    const { isLoading, movies } = this.state;
+    return (
+      <section className="container">
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+        ) : (
+            <div className="movies">
+              {movies.map((movie) => {
+            console.log(movie);
+            return (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                year={movie.year}
+                title={movie.title}
+                summary={movie.summary}
+                poster={movie.medium_cover_image}
+                genres={movie.genres}
+              />
+            );
+          })}
+            </div>
+        )}
+      </section>
+    );
+  }
+}
+
+export default App;
+```
+
+### # Style
+```css
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #eff3f7;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#potato,
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.loader {
+  width:100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding:50px;
+  width: 80%;
+}
+
+.movies .movie {
+  width : 45%;
+  background-color: white;
+  margin-bottom: 70px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  color: #d2d2e2;
+}
+
+.move img {
+  position: relative;
+  top: -50px;
+  max-width: 120px;
+  margin-right: 30px;
+}
+
+.movie .movie__title,
+.movie .movie__year {
+  margin: 0;
+  font-weight: 300;
+}
+
+.movie .movie__title{
+  margin-bottom: 5px;
+  font-size:24px;
+  color: #2c2c2c;
+}
+
+
+.movie .movie__genres {
+  list-style: none;
+  padding:0;
+  display: flex;
+  margin: 5px;
+}
+
+.movie__genres li {
+  margin-right: 10px;
+}
+```
+
+### # Create github page
+  - ```npm i gh-pages```
+  - ```npm run depoly```
+  - 디렉토리, 레포지터리명 동일해야함.
+  - public 레포지터리여야함.
+
+#### : Modify package.json 
+    : gh-pages -d build
+    : homepage
+```js
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.3",
+    "axios": "^0.21.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  },
+  "homepage": "https://softm.github.io/my_app"
+}
+```  
+
+### # react-router-dom
+  - ```npm install --save react-router-dom```
+  - https://www.npmjs.com/package/react-router-dom
+  
+```js
+import React from "react";
+import { BrowserRouter, HashRouter, Route, Link } from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Navigation from "./componets/Navigation";
+
+function App(){
+  return <BrowserRouter>2
+      <Navigation/>
+      <Route path="/" exact={true} component={Home}>
+      </Route>
+      <Route path="/about" component={About}/>
+      <Route path="/movie/:id" component={Detail}/>
+  </BrowserRouter>
+}
+
+export default App;
+```
+
+#### : Navigator.js
+```js
+import React from "react";
+import { Link } from "react-router-dom";
+
+function Navigation(){
+    return <div>
+        <Link to="/">Home</Link><br/>
+        <Link to="/about">About</Link><br/>
+    </div>;
+}
+
+export default Navigation;
+
+```
+
+#### : Detail.js
+```js
+import React from "react";
+
+// function Detail({location}){
+//     console.log(location);
+//     return <span>Detail page</span>;
+// }
+
+class Detail extends React.Component {
+    componentDidMount(){
+        const {location,history} = this.props;
+        console.log(this.props);
+        
+        if ( location.state === undefined ) {
+            history.push("/");
+        }
+    }
+
+    render(){
+        
+   // const { data: { data: { movies } } } 
+
+        const { location ,match:{params}} = this.props;
+        const param = {};
+        if ( location.state ) {
+            return <>
+            <div>id : {params.id}</div>
+            <span>{location.state.title}</span>
+            </>;
+        } else {
+            return null;
+        }
+    }
+}
+
+export default Detail;
 ```
