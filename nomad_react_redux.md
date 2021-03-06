@@ -1,10 +1,10 @@
-#### Redux?
+### # Redux?
  - state 변경 
  - state == data
  - data 관리
  - store
- 
-#### Vanilla Redux
+
+### # Vanilla Redux
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -46,5 +46,409 @@ add.addEventListener("click", handleAdd);
 minus.addEventListener("click",handleMinus);
 ```
 
-### # Install Redux
- - ```yarn add redux```
+### # Install Redux : ```yarn add redux```
+### # Instruction
+  - store 생성.
+  - store 생성시 Reducer(Data Modifier) 함수 구현.
+    - 4 Function in Store
+        - dispatch
+        - getState
+        - replaceReducer
+        - subscribe
+  - Modifier에서 return하는 값이 state 이며 == data
+    - state를 mutate하지 않음.
+    - state를 new함.
+  - Modifier는 2개의 Argument
+    - first : state == data
+    - second : action
+
+  - subscribe로 데이터의 상태 변화 감지.
+
+```js
+const countModifier = (state,action)=> {
+  console.log(state,action);
+  return state;  
+}
+```
+  - state변경은 dispatch를 이용해 한다.   
+    - ```countStore.dispatch({type:"ADD"});```  
+    - dispatch argument는 Object,"type" Key를 갖는다.
+
+### # Create Store : Assign Function
+```js
+import { createStore } from "redux";
+const reducer = ()=> {
+}
+const store = createStore(reducer);
+```
+#### : Modifier == Reducer
+```js
+const countModifier = ()=> {
+  return "hello";  
+}
+
+const countStore = createStore(countModifier);
+console.log(countStore);
+```
+#### : store Function
+```js
+Object
+    dispatch: ƒ dispatch(action)
+    getState: ƒ getState()
+    replaceReducer: ƒ replaceReducer(nextReducer)
+    subscribe: ƒ subscribe(listener)
+    Symbol(observable): ƒ observable()
+    __proto__: Object
+```
+
+### # Redux 4 Function
+  - dispatch
+  - getState
+  - replaceReducer
+  - subscribe
+
+### # dispatch
+```js
+import { createStore } from "redux";
+
+const add = document.getElementById("add");
+const minus = document.getElementById("minus");
+const number = document.querySelector("span");
+
+const countModifier = (count = 0, action)=> {
+  console.log(count,action);
+  if ( action.type === "ADD" ) {
+    return count+1;
+  } else if ( action.type === "MINUS" ) {
+    return count-1;
+  } else{
+    return count;  
+  }
+}
+
+const countStore = createStore(countModifier);
+console.log(countStore);
+countStore.dispatch({type:"ADD"});
+countStore.dispatch({type:"ADD"});
+countStore.dispatch({type:"ADD"});
+countStore.dispatch({type:"ADD"});
+countStore.dispatch({type:"ADD"});
+countStore.dispatch({type:"MINUS"});
+console.log("countStore.getState()", countStore.getState())
+```
+#### : Handle Event 
+```js
+import { createStore } from "redux";
+
+const add = document.getElementById("add");
+const minus = document.getElementById("minus");
+const number = document.querySelector("span");
+
+const countModifier = (count = 0, action)=> {
+  console.log(count,action);
+  if ( action.type === "ADD" ) {
+    return count+1;
+  } else if ( action.type === "MINUS" ) {
+    return count-1;
+  } else{
+    return count;  
+  }
+}
+const countStore = createStore(countModifier);
+
+const handleAdd = () => {
+  countStore.dispatch({type:"ADD"});
+};
+
+const handleMinus = () => {
+  countStore.dispatch({type:"MINUS"});
+};
+
+add.addEventListener("click", handleAdd);
+minus.addEventListener("click",handleMinus);
+```
+
+### # subcribe
+```js
+import { createStore } from "redux";
+
+const add = document.getElementById("add");
+const minus = document.getElementById("minus");
+const number = document.querySelector("span");
+
+const countModifier = (count = 0, action)=> {
+  console.log(count,action);
+  if ( action.type === "ADD" ) {
+    return count + 1;
+  } else if ( action.type === "MINUS" ) {
+    return count - 1;
+  } else{
+    return count;  
+  }
+};
+
+const countStore = createStore(countModifier);
+
+const onChange = ()=>{
+  console.log("onChange", countStore.getState());
+  number.innerText = countStore.getState();
+};
+
+countStore.subscribe(onChange);
+
+const handleAdd = () => {
+  countStore.dispatch({type:"ADD"});
+};
+
+const handleMinus = () => {
+  countStore.dispatch({type:"MINUS"});
+};
+
+add.addEventListener("click", handleAdd);
+minus.addEventListener("click",handleMinus);
+```
+### # Improvement Switch
+```js
+import { createStore } from "redux";
+
+const add = document.getElementById("add");
+const minus = document.getElementById("minus");
+const number = document.querySelector("span");
+
+const countModifier = (count = 0, action)=> {
+  console.log(count,action);
+  switch (action.type) {
+    case "ADD":
+      return count + 1;
+    case "MINUS":
+      return count - 1;
+    default:
+      return count;
+  }
+};
+
+const countStore = createStore(countModifier);
+
+const onChange = ()=>{
+  console.log("onChange", countStore.getState());
+  number.innerText = countStore.getState();
+};
+
+countStore.subscribe(onChange);
+
+const handleAdd = () => {
+  countStore.dispatch({type:"ADD"});
+};
+
+const handleMinus = () => {
+  countStore.dispatch({type:"MINUS"});
+};
+
+add.addEventListener("click", handleAdd);
+minus.addEventListener("click",handleMinus);
+```
+
+### # Improvement Const Type 
+```js
+import { createStore } from "redux";
+
+const add = document.getElementById("add");
+const minus = document.getElementById("minus");
+const number = document.querySelector("span");
+const ADD="ADD";
+const MINUS="MINUS";
+const countModifier = (count = 0, action)=> {
+  console.log(count,action);
+  switch (action.type) {
+    case ADD:
+      return count + 1;
+    case MINUS:
+      return count - 1;
+    default:
+      return count;
+  }
+};
+
+const countStore = createStore(countModifier);
+
+const onChange = ()=>{
+  console.log("onChange", countStore.getState());
+  number.innerText = countStore.getState();
+};
+
+countStore.subscribe(onChange);
+
+const handleAdd = () => {
+  countStore.dispatch({type:ADD});
+};
+
+const handleMinus = () => {
+  countStore.dispatch({type:MINUS});
+};
+
+add.addEventListener("click", handleAdd);
+minus.addEventListener("click",handleMinus);
+```
+
+### # Vanilla Todos
+#### : index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Vanilla Redux</title>
+  </head>
+  <body>
+<h1>To Dos</h1>
+  <form>
+    <input type="text" placeholder="Write to do"/>
+    <button>Add</button>
+  </form>
+  <ul></ul>
+  </body>
+</html>
+```
+#### : index.js
+```js
+import { createStore } from "redux";
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const ul = document.querySelector("ul");
+
+const createToDo = toDo => {
+  const li = document.createElement("li");
+  li.innerText = toDo;
+  ul.appendChild(li);  
+};
+
+const onSubmit = e => {
+  e.preventDefault();
+  const toDo = input.value;
+  input.value  = "";
+  createToDo(toDo);
+};
+
+form.addEventListener("submit", onSubmit);
+```
+
+### # Do not Mutate State
+- ``` [...state,{text:action.text,id:Date.now()}];```
+```js
+import { createStore } from "redux";
+
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const ul = document.querySelector("ul");
+const ADD_TODO = "ADD_TODO";
+const DELETE_TODO = "DELETE_TODO";
+
+const reducer = (state=[], action) => {
+  console.log(state,action);
+  switch (action.type) {
+    case ADD_TODO:
+      return [...state,{text:action.text,id:Date.now()}];
+    case DELETE_TODO:
+      return [];
+    default:
+      return state;
+  }
+};
+
+const store = createStore(reducer);
+store.subscribe(()=>{
+  console.log("subcribe-getState",store.getState());
+});
+const createToDo = toDo => {
+  const li = document.createElement("li");
+  li.innerText = toDo;
+  ul.appendChild(li);  
+  store.dispatch({type:ADD_TODO, text: toDo });
+};
+
+const onSubmit = e => {
+  e.preventDefault();
+  const toDo = input.value;
+  input.value  = "";
+  createToDo(toDo);
+};
+
+form.addEventListener("submit", onSubmit);
+```
+
+### # Delete ToDos
+```js
+import { createStore } from "redux";
+
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const ul = document.querySelector("ul");
+const ADD_TODO = "ADD_TODO";
+const DELETE_TODO = "DELETE_TODO";
+
+const addToDo = (text) => { 
+    return {
+      type: ADD_TODO,
+      text
+    };
+};
+const deleteToDo = (id) => {
+  return {
+    type: DELETE_TODO,
+    id
+  };
+};
+
+const reducer = (state=[], action) => {
+  console.log(state,action);
+  switch (action.type) {
+    case ADD_TODO:
+      return [{text:action.text,id:Date.now()},...state];
+    case DELETE_TODO:
+      return [];
+    default:
+      return state;
+  }
+};
+
+const store = createStore(reducer);
+store.subscribe(()=>{
+  console.log("subcribe-getState",store.getState());
+});
+
+const dispatchAddToDo = text => {
+  store.dispatch(addToDo(text));
+}
+
+const dispatchDeleteToDo = id => {
+  store.dispatch(deleteToDo(id));
+}
+
+const paintToDos = () => {
+  ul.innerHTML = "";
+  const toDos = store.getState();
+  toDos.forEach(toDo => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.innerText = "DEL";
+    btn.addEventListener("click",dispatchAddToDo);
+    li.appendChild(btn);
+    li.id = toDo.id;
+    li.innerText = toDo.text;
+    ul.appendChild(li);
+  });
+};
+
+store.subscribe(paintToDos);
+
+const onSubmit = e => {
+  e.preventDefault();
+  const toDo = input.value;
+  input.value  = "";
+  dispatchAddToDo(toDo);
+};
+
+form.addEventListener("submit", onSubmit);
+```
