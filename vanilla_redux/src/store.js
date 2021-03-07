@@ -1,18 +1,17 @@
 import {createStore} from "redux";
 const ADD = "ADD_TODO";
 const DELETE = "DELETE_TODO";
-
-export const addTodo = (text) => {
+const addToDo = (text) => {
     return {
         type:ADD,
         text
     };
 };
 
-export const deleteTodo = (id) => {
+const deleteToDo = (id) => {
     return {
         type:DELETE,
-        id
+        id: parseInt(id)
     };
 };
 
@@ -29,7 +28,8 @@ const reducer = (state=[],action)=>{
 
 const store = createStore(reducer);
 
-//store.subscribe();
-
 export default store;
-
+export const actionCreators ={
+    addToDo,
+    deleteToDo
+};
