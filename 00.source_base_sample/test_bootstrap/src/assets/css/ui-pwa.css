@@ -1,0 +1,11 @@
+button {
+  user-select: none;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-touch-callout: none;
+}

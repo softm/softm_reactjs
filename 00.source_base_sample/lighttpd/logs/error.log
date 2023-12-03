@@ -1,0 +1,14 @@
+2021-03-16 09:57:08: (server.c.1482) server started (lighttpd/1.4.49) 
+2021-03-16 10:10:10: (server.c.1482) server started (lighttpd/1.4.49) 
+2021-03-16 10:14:56: (server.c.966) [note] graceful shutdown started 
+2021-03-16 10:14:56: (server.c.2075) server stopped by UID = 18 PID = 944 
+2021-03-16 10:15:06: (server.c.1482) server started (lighttpd/1.4.49) 
+2021-03-16 10:23:01: (server.c.966) [note] graceful shutdown started 
+2021-03-16 10:23:01: (server.c.2075) server stopped by UID = 18 PID = 8608 
+2021-03-16 10:23:47: (server.c.1482) server started (lighttpd/1.4.49) 
+2021-03-17 11:32:48: (server.c.966) [note] graceful shutdown started 
+2021-03-17 11:32:48: (server.c.2075) server stopped by UID = 18 PID = 1368 
+2021-03-17 11:33:11: (server.c.1482) server started (lighttpd/1.4.49) 
+2021-03-19 18:00:18: (server.c.966) [note] graceful shutdown started 
+2021-03-19 18:00:18: (server.c.2075) server stopped by UID = 18 PID = 5096 
+2021-03-19 18:00:46: (server.c.1482) server started (lighttpd/1.4.49) 

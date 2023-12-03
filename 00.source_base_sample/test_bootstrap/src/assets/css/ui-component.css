@@ -1,0 +1,120 @@
+.button-xs {
+  padding: 0px 3px 3px 3px;
+  font-size: 0.9em;
+  border: 1px solid red !important;
+}
+
+.form-xs {
+  height: 1.6em;
+  font-size: 1em;
+  padding: 0;
+}
+
+.table-sm {
+  margin: 0px;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.react-bootstrap-table > table > thead > tr > th .filter-label {
+  display: block !important;
+}
+
+.Toastify__toast-body {
+  overflow: hidden;
+}
+
+
+.react-transform-component {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+
+.react-transform-element {
+  height: inherit !important;
+  width: inherit !important;
+}
+
+
+.modal-60w {
+  max-width: 60vw !important;
+}
+.modal-90w {
+  max-width: 96vw !important;
+}
+.modal-90h {
+  max-height: 96vh !important;
+}
+
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto,
+.col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto,
+.col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto,
+.col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto,
+.col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+  padding: 1px 3px 1px 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.drop-shadow {
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+.drop-shadow-8 {
+  filter: drop-shadow(8px 8px 8px black);
+}
+
+
+.check-pattern {
+  background-color: #888;
+  background-image: linear-gradient(45deg, #444 25%, transparent 25%, transparent 75%, #444 75%, #444), linear-gradient(45deg, #444 25%, transparent 25%, transparent 75%, #444 75%, #444);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+}
+
+.react-datepicker-wrapper input {
+  width: 100px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* 
+ fixed datepicker bug
+*/
+.react-datepicker__tab-loop {
+  display: inline-block;
+}
+/*
+  react-bootstrap-table2-paginator
+*/
+.react-bootstrap-table-pagination {
+  margin-top: 1rem;
+}
+::selection {
+  color: black;
+  background: yellow;
+}

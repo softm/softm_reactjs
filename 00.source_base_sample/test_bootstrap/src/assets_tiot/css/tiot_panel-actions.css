@@ -1,0 +1,57 @@
+/*** Actions Specifict CSS ***/
+.list-action {
+    background-image: url(../img/tiot_icons/list.svg);
+}
+
+.list-action:hover {
+    background-image: url(../img/tiot_icons/list-hover.svg);
+}
+
+.add-action:hover {
+    background-image: url(../img/tiot_icons/add-more-hover.svg);
+}
+
+.add-action {
+    background-image: url(../img/tiot_icons/add-more.svg);
+}
+
+.detail-action {
+    background-image: url(../img/tiot_icons/all-actions-icon.svg);
+}
+
+.detail-action:hover {
+    background-image: url(../img/tiot_icons/all-actions-icon-hover.svg);
+}
+
+
+/* Accordion list dropdown menu*/
+.list-dp-menu {
+    float: right;
+}
+
+.list-dp-menu>a {
+    background-image   : url("../img/tiot_icons/list-dp-menu.svg");
+    background-position: center center;
+    background-repeat  : no-repeat;
+    background-size    : 15px auto;
+    border-left        : 1px solid #d8d8d8;
+    float              : right;
+    height             : 38px;
+    position           : relative;
+    width              : 38px;
+}
+
+.list-dp-menu>a:hover {
+    background-image: url("../img/tiot_icons/list-dp-menu-hover.svg");
+}
+
+.list-dropdown-menu {
+    background: #fff none repeat scroll 0 0;
+    border    : 1px solid #d8d8d8;
+    display   : none;
+    position  : absolute;
+    right     : 0;
+    top       : 38px;
+    width     : 250px;
+    z-index   : 1000;
+}

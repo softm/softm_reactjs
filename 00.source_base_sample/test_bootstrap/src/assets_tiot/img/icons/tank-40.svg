@@ -1,0 +1,18 @@
+<svg width="42" height="15" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <rect x="-1" y="-1" width="44" height="17" id="canvas_background" fill="none"/>
+ </g>
+
+ <g>
+  <g stroke="null" id="svg_1">
+   <g stroke="null" id="svg_2">
+    <path stroke="null" fill="#211C58" d="m33.804279,2.143l-25.542658,0c-3.897644,0 -7.065726,2.384 -7.065726,5.316c-0.001329,2.933 3.166753,5.317 7.061739,5.317l25.546644,0c3.894986,0 7.063068,-2.383 7.063068,-5.317c0,-2.932 -3.168082,-5.316 -7.063068,-5.316zm-0.127574,9.798l-24.997811,0c-3.285024,0 -5.954771,-1.984 -5.954771,-4.421s2.671075,-4.42 5.954771,-4.42l24.997811,0c3.172068,0 5.755437,1.984 5.755437,4.421c-0.001329,2.438 -2.584697,4.42 -5.755437,4.42z" id="svg_3"/>
+   </g>
+   <rect stroke="#211C58" x="0.659023" y="1.709" fill="none" stroke-width="0.8398" stroke-miterlimit="10" width="40.72925" height="11.545" id="svg_4"/>
+   <line stroke="#211C58" fill="none" stroke-width="0.8398" stroke-miterlimit="10" x1="5.288887" y1="1.772" x2="0.566" y2="5.033" id="svg_5"/>
+   <line stroke="#211C58" fill="none" stroke-width="0.8398" stroke-miterlimit="10" x1="41.586278" y1="10.03" x2="36.862062" y2="13.291" id="svg_6"/>
+   <line stroke="#211C58" fill="none" stroke-width="0.8398" stroke-miterlimit="10" x1="36.826182" y1="1.719" x2="41.550398" y2="4.979" id="svg_7"/>
+   <line stroke="#211C58" fill="none" stroke-width="0.8398" stroke-miterlimit="10" x1="0.67364" y1="9.924" x2="5.396527" y2="13.184" id="svg_8"/>
+  </g>
+ </g>
+</svg>

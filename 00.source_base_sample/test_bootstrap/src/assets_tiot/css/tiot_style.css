@@ -1,0 +1,94 @@
+body {
+  line-height: 1.5;
+  text-align : left;
+  font-size  : 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color      : #212529;
+  /* background-color: #ff0000; */
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.logo-fix-width {
+  float           : left;
+  position        : relative;
+  z-index         : 9999;
+  width           : 213px;
+  height          : 70px;
+  background-color: white;
+  height          : 70px;
+}
+
+.logo-fix-width::after {
+  background-image : linear-gradient(to right, rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0) 100%);
+  background-repeat: repeat-x;
+  content          : "";
+  height           : 100%;
+  margin-left      : 0 !important;
+  position         : absolute;
+  right            : -12px;
+  top              : 0;
+  width            : 12px;
+}
+
+.header {
+  height: auto;
+}
+
+.logo-fix-width img {
+  width: 70%;
+}
+
+.logo-fix-width a {
+  display       : inline-block;
+  float         : none;
+  margin        : 0 auto;
+  text-align    : center;
+  width         : 100%;
+  padding-bottom: 8px;
+  padding-top   : 0px;
+}
+
+.main-body {
+  padding : 15px;
+  height  : calc(100% - 100px);
+  overflow: auto;
+}
+
+.show-code {
+  margin-top: 10px;
+}
+
+.menu .about {
+  background-image   : url(../img/icons/about-us.svg);
+  background-repeat  : no-repeat;
+  background-size    : 12px auto;
+  background-position: center;
+}
+
+.menu li:hover .about.icon,
+.menu .active .about.icon,
+.navbar-nav li a:focus .about.icon {
+  background-image: url("../img/icons/about-us-hover.svg");
+}
+
+.menu .home {
+  background-image   : url(../img/icons/home.svg);
+  background-repeat  : no-repeat;
+  background-size    : 12px auto;
+  background-position: center;
+}
+
+.menu li:hover .home.icon,
+.menu .active .home.icon,
+.navbar-nav li a:focus .home.icon {
+  background-image: url("../img/icons/home-hover.svg");
+}
+
+.button-demo {
+  padding: 10px 25px;
+}
+
+.code-headings {
+  margin-top: 1rem;
+}

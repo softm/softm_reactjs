@@ -1,0 +1,27 @@
+:root {
+  --zodiac-dark-blue: #0c79c1;
+  --zodiac-sky-blue: #2991d6;
+  --zodiac-light-sky-blue: #e0f3ff;
+  --zodiac-navy-blue: #120e5b;
+  --zodiac-dark-gray: #5c5c5c;
+  --zodiac-dim-gray: #c5c5c5;
+  --zodiac-gray: #d8d8d8;
+  --zodiac-light-gray: #e6e6e6;
+  --zodiac-lighter-gray: #f6f6f6;
+  --zodiac-sea-green: #45b6b0;
+  --zodiac-orange: #feaa30;
+  --zodiac-red: #ff0000;
+
+  --black: #000;
+  --gainsboro: var(--zodiac-gray);
+  --light-gray: var(--zodiac-light-gray);
+  --lighter-gray: var(--zodiac-lighter-gray);
+  --dim-gray: var(--zodiac-dim-gray);
+
+  --link-blue: #0056b3;
+  --deep-dark-blue: #212529;
+}
+
+.bg-lightergray {
+  background-color: var(--lighter-gray) !important;
+}

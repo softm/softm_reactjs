@@ -1,0 +1,53 @@
+{
+/* */
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint" ,
+  "rules": {
+      "indent": "off",
+      "no-unused-vars": 1,
+      "no-use-before-define": 1,
+      "no-redeclare": 1,
+      "no-console":0,
+      "import/prefer-default-export":"off"
+  }
+  ,
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "env": {
+      "es6": true
+  }
+/*
+    "extends": ["react-app","airbnb"],
+    "parser": "babel-eslint",
+    "ignorePatterns": ["build/**","node_modules/**"],
+    "env": {
+      "browser": true
+    },
+    "rules":{
+      "react/jsx-filename-extension":"off",
+      "no-use-before-define":"off",
+      "object-shorthand":"off",
+      "react/prop-types":"off",
+      "linebreak-style":"off",
+      "no-underscore-dangle":"off",
+      "arrow-body-style":"off",
+      "import/prefer-default-export":"off",
+      "react-hooks/exhaustive-deps":"off",
+      "camelcase":"off",
+      "max-len":"warn",
+      "no-unused-vars":["warn", {"caughtErrors ": "none"}]
+    },
+    "globals": {
+      "websocketManager":true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": ["node_modules", "src/"]
+        }
+      }
+    }
+*/
+}

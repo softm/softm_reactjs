@@ -1,0 +1,14 @@
+html {
+  font-family: Tahoma;
+  font-size: 12px;
+}
+
+.text-small {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 16px;
+  }
+}
